@@ -17,8 +17,10 @@ pipeline {
         }
         stage {
             always {
-                 archive "target/*.jar"
-                 junit 'target/surefire-reports/*.xml'
+                steps {
+                    archive "target/*.jar"
+                    junit 'target/surefire-reports/*.xml'
+                }
             }
         }
             
