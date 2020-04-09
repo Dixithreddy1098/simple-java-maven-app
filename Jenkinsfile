@@ -12,7 +12,15 @@ pipeline {
 
             steps {
                 sh 'mvn test'
+        
             }
         }
+        stage ('Archivetheatrficats') {
+            steps {
+                archiveArtifacts artifacts: 'target/*.jar'
+            }
+        }
+            
+        
     }
 }
