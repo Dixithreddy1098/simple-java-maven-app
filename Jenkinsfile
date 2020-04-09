@@ -15,10 +15,10 @@ pipeline {
         
             }
         }
-        stage ('Archivetheatrficats') {
-            steps {
-                archiveArtifacts artifacts: 'target/*.jar'
-                Junit 'target/surefire-reports/*.xml'
+        post {
+            always {
+                 archive "target/*.jar"
+                 junit 'target/surefire-reports/*.xml'
             }
         }
             
